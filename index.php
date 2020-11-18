@@ -21,64 +21,30 @@
      * Objectif: Afficher les CD disponibles à la vente
      * Version: 1.0
      */
-
-    // On load le fichier XML
-    $doc = new DOMDocument();
-    $doc->load('data.xml');
-
-
-
-    // On récupère les éléments pays dans le fichier XML
-    $elements = $doc->getElementsByTagName('cd');
+    $PARAM_hote='localhost'; 
+    $PARAM_bdd='projetphp';
+    $PARAM_user='root';
+    $PARAM_pw='';
 
     echo '<h3 class="contenue-titre">Les CD à  l\'affiche cette semaine</h1>';
     echo '<table>';
-    $taille=$elements->length;
+    
+    try {
+        $connexion   =   new   PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_bdd,   $PARAM_user,$PARAM_pw);
 
-    for($i=0;$i<5;$i++){
-        $enfants=$elements->item($i)->childNodes;
-        echo '<td>';
-        echo '<table>';
-        foreach($enfants as $enfant){
-            if($enfant->nodeName == "srcvignette" ){
-                echo '<tr>';
-                echo '<td>';
-                echo '<img src="generationVignette.php/?src=Images/'.$enfant->nodeValue.'.jpg">';
-                echo '</td>';
-                echo '</tr>';
-
-                $tab[0]=$enfant->nodeValue;
-                echo $tab[0];
-            }else if($enfant->nodeName == "titre"){
-                echo '<tr>';
-                echo '<td>';
-                echo $enfant->nodeValue;
-                echo '</td>';
-                echo '</tr>';
-
-                $tab[1]=$enfant->nodeValue;
-            }else if( $enfant->nodeName == "auteur"){
-                echo '<tr>';
-                echo '<td>';
-                echo $enfant->nodeValue;
-                echo '</td>';
-                echo '</tr>';
-                $tab[2]=$enfant->nodeValue;
-            }else if($enfant->nodeName == "prix" ){
-                echo '<tr>';
-                echo '<td>';
-                echo $enfant->nodeValue;
-                echo '</td>';
-                echo '</tr>';
-                $tab[3]=$enfant->nodeValue;
-            }
-
-            echo $tab[0];
-            
+        $resultats=$connexion->query("SELECT * FROM cd"); 
+        $resultats->setFetchMode(PDO::FETCH_OBJ);
+        while( $tuple= $resultats->fetch() ) {
+            echo $tuple->src.'<br />';
+            echo $tuple->auteur.'<br />';
         }
-        echo '</table>';
-        echo '</td>';
+        $resultats->closeCursor();
     }
+    catch(Exception $e){
+        echo 'Erreur : '.$e->getMessage().'<br />';
+    }
+    echo '</table>';
+    echo '</td>';
 
     ?>
 
