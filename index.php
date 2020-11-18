@@ -7,7 +7,6 @@
  * Version: 1.0
  */
 
-include 'generationVignette.php';
 // On load le fichier XML
 $doc = new DOMDocument();
 $doc->load('data.xml');
@@ -17,9 +16,24 @@ $elements = $doc->getElementsByTagName('cd');
 
 echo 'CD disponibles à la vente :<br/>';
 
-$elements = $elements->item(0);
-$enfants = $elements->childNodes;
+$taille=$elements->length;
 
+for($i=0;$i<$taille;$i++){
+    $enfants=$elements->item($i)->childNodes;
+    foreach($enfants as $enfant){
+        if($enfant->nodeName == "titre"){
+            echo $enfant->nodeValue." | ";
+        }else if( $enfant->nodeName == "auteur"){
+            echo $enfant->nodeValue." | ";
+        }else if($enfant->nodeName == "prix" ){
+            echo $enfant->nodeValue." | ";
+        }else if($enfant->nodeName == "srcvignette" ){
+            echo '<img src="generationVignette.php/?src='.$enfant->nodeValue.'.jpg">';
+        }
+    }
+}
+
+/*
 foreach($enfants as $enfant)
 {
     if($enfant->nodeName == "titre"){
@@ -29,9 +43,10 @@ foreach($enfants as $enfant)
     }else if($enfant->nodeName == "prix" ){
         echo $enfant->nodeValue." | ";
     }else if($enfant->nodeName == "srcvignette" ){
-
+        echo '<img src="generationVignette.php/?src='.$enfant->nodeValue.'.jpg">';
     }
 }
 
-
+*/
+//$elements = $elements->item(5);
 ?>

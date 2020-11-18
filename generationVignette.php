@@ -8,8 +8,8 @@
  */
 
 // The file
-function generationVignette($nom){
-    $filename = $nom;
+    
+    $filename = htmlspecialchars($_GET["src"]);
     $percent = 0.1;
     
     // Content type
@@ -27,5 +27,5 @@ function generationVignette($nom){
     
     // Output
     imagejpeg($image_p, null, 100);
-}
-?>
+
+
