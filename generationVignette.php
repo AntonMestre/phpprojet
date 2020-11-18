@@ -16,8 +16,8 @@
     
     // Get new dimensions
     list($width, $height) = getimagesize($filename);
-    $new_width = 100;
-    $new_height = 100;
+    $new_width = 125;
+    $new_height = 125;
     
     // Resample
     $image_p = imagecreatetruecolor($new_width, $new_height);

@@ -45,4 +45,26 @@ body {
 .contenue-titre{
     padding-left: 220px;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
+}
+.affiche{
+    padding-left: 220px;
+}
+.affiche-vignette{
+    border-radius: 8px;
+}
+.affiche-titre{
+    font-family: 'Roboto', sans-serif;
+}
+.affiche-auteur{
+    font-family: 'Roboto', sans-serif;
+    font-size: 80%;
+    color:grey;
+}
+.affiche-prix{
+    font-family: 'Roboto', sans-serif;
+    color:coral;
+}
+.td-padding{
+    padding-left: 50px;
 }
