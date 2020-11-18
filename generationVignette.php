@@ -10,15 +10,14 @@
 // The file
     
     $filename = htmlspecialchars($_GET["src"]);
-    $percent = 0.1;
     
     // Content type
     header('Content-Type: image/jpeg');
     
     // Get new dimensions
     list($width, $height) = getimagesize($filename);
-    $new_width = $width * $percent;
-    $new_height = $height * $percent;
+    $new_width = 100;
+    $new_height = 100;
     
     // Resample
     $image_p = imagecreatetruecolor($new_width, $new_height);

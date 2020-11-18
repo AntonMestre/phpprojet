@@ -4,7 +4,7 @@
     <titre>Burryface</titre>
     <auteur>Twenty One Pilots</auteur>
     <prix>10</prix>
-    <srcvignette>test</srcvignette>
+    <srcvignette>top</srcvignette>
     <sons>
         <nom>Heavydirtysoul</nom>
         <nom>Stressed Out</nom>
@@ -26,7 +26,7 @@
     <titre>After Hours</titre>
     <auteur>The Weeknd</auteur>
     <prix>17,78</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>after</srcvignette>
     <sons>
         <nom>Alone Again</nom>
         <nom>Too Late</nom>
@@ -49,7 +49,7 @@
     <titre>Scorpion</titre>
     <auteur>Drake</auteur>
     <prix>20</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>scorpion</srcvignette>
     <sons>
         <nom>Survival</nom>
         <nom>Nonstop</nom>
@@ -81,7 +81,7 @@
     <titre>Vous et moi</titre>
     <auteur>Julien Doré</auteur>
     <prix>10.99</prix>
-    <srcvignette>images/top</srcvignette>
+    <srcvignette>julien</srcvignette>
     <sons>
         <nom>Le lac</nom>
         <nom>Coco Câline</nom>
@@ -102,7 +102,7 @@
     <titre>Live At The Regal</titre>
     <auteur>B.B King</auteur>
     <prix>10</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>live</srcvignette>
     <sons>
         <nom>Live At The Regal</nom>
         <nom>Sweet Little Angel</nom>
@@ -121,7 +121,7 @@
     <titre>Feu</titre>
     <auteur>Nekfeu</auteur>
     <prix>11.25</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>feu</srcvignette>
     <sons>
         <nom>Martin Eden</nom>
         <nom>Mon ame</nom>
@@ -148,7 +148,7 @@
     <titre>The Diary Of Alicia Keys</titre>
     <auteur>Alicia Keys</auteur>
     <prix>8</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>alicia</srcvignette>
     <sons>
         <nom>Harlem's Nocturne</nom>
         <nom>Karma</nom>
@@ -172,7 +172,7 @@
     <titre>Nevermind</titre>
     <auteur>Nirvana</auteur>
     <prix>7.88</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>nirvana</srcvignette>
     <sons>
         <nom>Smells Like Teen Spirit</nom>
         <nom>In Bloom</nom>
@@ -194,7 +194,7 @@
     <titre>N'attendons pas</titre>
     <auteur>Vianney</auteur>
     <prix>10.99</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>vianney</srcvignette>
     <sons>
         <nom>Merci pour ça</nom>
         <nom>Pour de vrai</nom>
@@ -214,7 +214,7 @@
     <titre>Dialogue de sourds</titre>
     <auteur>Danakil</auteur>
     <prix>21.89</prix>
-    <srcvignette>images/top.png</srcvignette>
+    <srcvignette>diana</srcvignette>
     <sons>
         <nom>Les champs de roses</nom>
         <nom>Dialogue de sourds</nom>
