@@ -41,7 +41,16 @@ body {
     color:white;
     padding-left: 220px;
 }
-/* Contenue page */
+.bandeau-menu{
+    font-family: titre;
+    padding:50px;
+    text-decoration: none;
+    color:coral;
+}
+.bandeau-menu-a{
+    text-decoration: none;
+}
+/* Contenue page principale */
 .contenue-titre{
     padding-left: 220px;
     font-family: 'Roboto', sans-serif;
@@ -67,4 +76,69 @@ body {
 }
 .td-padding{
     padding-left: 50px;
+}
+.bouton-details{
+    text-decoration: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    background-color: coral;
+    border: 0px;
+    font-size: 80%;
+    font-family: titre;
+}
+.bouton-ajouterpanier{
+    text-decoration: none;
+    color:coral;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    background-color: white;
+    border: 0px;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left:5px;
+}
+.txt-aide{
+    padding-left: 220px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 50px;
+    color:grey;
+    font-size: 80%;
+}
+/* Contenue détail d'un CD */
+.main {
+    margin-left: 220px;
+}
+.cd-album{
+    font-family: titre;
+    color:coral;
+}
+.cd-titre{
+    font-family: 'Roboto', sans-serif;
+    font-size: 350%;
+}
+.cd-auteur{
+    font-family: 'Roboto', sans-serif;
+}
+.cd-ajouterpanier{
+    text-decoration: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    background-color: coral;
+    border: 0px;
+    font-size: 80%;
+    font-family: titre;
+}
+.cd-prix{
+    font-family: 'Roboto', sans-serif;
+    font-size: 115%;
+    padding-right: 15px;
 }
