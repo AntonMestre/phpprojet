@@ -55,42 +55,46 @@
             echo '<table>';
                 echo '<tr>';
                     echo '<td>';
-                        // On affiche les images générées à partir 
+                        // On affiche les images générées à partir de la page générationVignette.php (format: 125x125)
                         echo '<img class="affiche-vignette" src="generationVignette125.php/?src=Images/'.$tuple->src.'">';
                     echo '</td>';
                 echo '</tr>';
                 echo '<tr>';
                     echo '<td>';
+                        // On affiche le titre du cd
                         echo '<span class="affiche-titre">'.$tuple->titre.'</span>';
                     echo '</td>';
                 echo '</tr>';
                 echo '<tr>';
                     echo '<td>';
+                        // On affiche l'auteur/artiste du cd
                         echo '<span class="affiche-auteur">'.$tuple->auteur.'</span>';
                     echo '</td>';
                 echo '</tr>';
                 echo '<tr>';
                     echo '<td>';
+                        // On affiche un bouton détail
                         echo '<span class="affiche-prix"><a class="bouton-details" href="cd.php?titre='.$tuple->titre.'" > Details </a></span>';
-
+                        // On affiche un bouton d'ajout au panier
                         echo '<a class="bouton-ajouterpanier" href="ajoutPanier.php?titre=' .$tuple->titre. '">+</a>';
                     echo '</td>';
                 echo '</tr>';
             echo '</td>';
             echo '</table>';
         }
-
+        // On ferme le curseur des réultats de la requête
         $resultats->closeCursor();
     }
     catch(Exception $e){
+        // Si une erreur liée à la base de données -> on affiche l'erreur
         echo 'Erreur : '.$e->getMessage().'<br />';
     }
+
+    // On finalise le tableau
     echo '</table>';
-    echo '</td>';
-
     ?>
+
+    <!-- On indique une aide pour la compréhension du système -->
     <div class="txt-aide">Pour ajouter au panier il vous suffit d'appuyer sur le bouton<a class="bouton-ajouterpanier">+</a> et pour voir les détails appuyer sur <a class="bouton-details"> Details </a> </div>
-
     </body>
-
 </html>
