@@ -1,30 +1,31 @@
 <?php
 
-/**
- * Nom: generationVignette.php
- * Auteur: Mathieu Derrit & Antonin Maystre
- * Objectif: Générer la vignette d'un CD
- * Version: 1.0
- */
+    /**
+     * Nom: generationVignette300.php
+     * Auteur: Mathieu Derrit & Antonin Maystre
+     * Objectif: Générer la vignette d'un CD (format: 300x300)
+     * Version: 1.0
+     */
 
-// The file
+    // On récupère le nom du fichier dans l'url
+    $nomfichier = htmlspecialchars($_GET["src"]);
     
-    $filename = htmlspecialchars($_GET["src"]);
-    
-    // Content type
+    // On indique le Content type de la page (jpeg)
     header('Content-Type: image/jpeg');
     
-    // Get new dimensions
-    list($width, $height) = getimagesize($filename);
-    $new_width = 300;
-    $new_height = 300;
+    // On récupère la hauteur et largeur de l'image dans les variables $width et $height
+    list($largeur, $hauteur) = getimagesize($nomfichier);
+
+    // On définit la nouvelle largeur et hauteur
+    $nouvelle_largeur= 300;
+    $nouvelle_hauteur= 300;
     
-    // Resample
-    $image_p = imagecreatetruecolor($new_width, $new_height);
-    $image = imagecreatefromjpeg($filename);
-    imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+    // On créer une nouvelle image à partir de l'image déjà existante
+    $image_p = imagecreatetruecolor($nouvelle_largeur, $nouvelle_hauteur);
+    $image = imagecreatefromjpeg($nomfichier);
+    imagecopyresampled($image_p, $image, 0, 0, 0, 0, $nouvelle_largeur, $nouvelle_hauteur, $largeur, $hauteur);
     
-    // Output
+    // On renvoie la nouvelle image au nouveau format
     imagejpeg($image_p, null, 100);
 
-
+?>
