@@ -70,7 +70,8 @@
                 echo 'Erreur : '.$e->getMessage().'<br />';
                 }
         }else{
-          // Sinon on créer le tableau pour le panier et on insère le titre
+          
+            // Sinon on créer le tableau pour le panier et on insère le titre
             $panier[0]=$titre;
             $_SESSION['panier'] = $panier;
         }

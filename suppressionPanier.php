@@ -1,10 +1,21 @@
 <?php
 
-session_start();
+    /**
+     * Nom: suppressionPanier.php
+     * Auteur: Mathieu Derrit & Antonin Maystre
+     * Objectif: Supprimer l'ensemble du panier
+     * Version: 1.0
+     */
 
-if(isset($_SESSION['panier'])){
-    unset($_SESSION['panier']);
-}
+    // On démarre la session    
+    session_start();
 
-header('Location: panier.php');
+    // On supprime que si un panier est existant
+    if(isset($_SESSION['panier'])){
+        // Suppression du panier
+        unset($_SESSION['panier']);
+    }
+
+    // Retour sur la page du panier
+    header('Location: panier.php');
 ?>

@@ -1,10 +1,16 @@
 <?php
+    /**
+     * Nom: panier.php
+     * Auteur: Mathieu Derrit & Antonin Maystre
+     * Objectif: Afficher le panier actuel
+     * Version: 1.0
+     */
 
-session_start();
+    // On démarre la session
+    session_start();
 
 ?>
 
-<!DOCTYPE html>
 <html>
     <head>
         <title>SpaceY | Vente de CD</title>
@@ -22,30 +28,56 @@ session_start();
         <span class="bandeau-front-description">La musique pour les voyageurs</span>
         <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a></span>
     </div>
-
+    
+    
     <?php
-    /**
-     * Nom: index.php
-     * Auteur: Mathieu Derrit & Antonin Maystre
-     * Objectif: Afficher les CD disponibles à la vente
-     * Version: 1.0
-     */
-
-
+    // On affiche le titre de la page
     echo '<h3 class="contenue-titre">Votre panier</h1>';
+    echo '<div class="main">';
+
+    //  On vérifie si il un panier a été déclarer
     if(isset($_SESSION['panier'])){
+        
+        // On récupère le panier
         $panier = $_SESSION['panier'];
-        for($i=0;$i<count($panier);$i++){
-            echo $panier[$i];
+
+        // On vérifie si le panier est vide
+        $longueurTableau=count($panier);
+        if($longueurTableau<1){
+            
+            // Si il est vide on affiche qu'il l'est
+            echo "Panier vide";
+        }else{
+            // On créer le tableau pour afficher
+            echo '<table class="panier">';
+            echo '<tr>';
+            echo '<th> Titre du cd </th>';
+            echo '<th> Prix </td>';
+            echo '</tr>';
+            // Sinon on affiche le contenue du panier
+            for($i=0;$i<count($panier);$i++){
+                echo '<tr>';
+                echo '<td>';
+                echo $panier[$i];
+                echo '</td>';
+                echo '<td>';
+                
+                echo '</td>';
+                echo '</tr>';
+            }
+            
+            // On finis le tableau
+            echo '</table>';
         }
     }else {
+
+        // Si il n'est pas déclaré alors on affiche qu'il est vide
         echo "Panier vide";
     }
-    echo '<a href="suppressionPanier.php">Supression pannier</a>';
-    echo '<a href="index.php">acueil</a>';
+
+        echo '<a href="suppressionPanier.php">Supression pannier</a>';
 
     ?>
-
+    <div>
     </body>
-
 </html>
