@@ -35,6 +35,7 @@
     echo '<h3 class="contenue-titre">Votre panier</h1>';
     echo '<div class="main">';
 
+
     //  On vérifie si il un panier a été déclarer
     if(isset($_SESSION['panier'])){
         
@@ -46,38 +47,76 @@
         if($longueurTableau<1){
             
             // Si il est vide on affiche qu'il l'est
-            echo "Panier vide";
+            echo "<span style='font-family: titre;'>Panier vide</span>";
         }else{
+            // On affiche deux boutons pour supprimer le panier et un autre pour payer le panier
+            echo '<div class="boutons-panier" ><a class="bouton-suppressionpannier" href="suppressionPanier.php">Supprimer le pannier</a><a class="bouton-payerpannier" href="suppressionPanier.php">Payer le pannier</a></div>';
+            
             // On créer le tableau pour afficher
             echo '<table class="panier">';
             echo '<tr>';
-            echo '<th> Titre du cd </th>';
+            echo '<th>CD</th>';
             echo '<th> Prix </td>';
             echo '</tr>';
-            // Sinon on affiche le contenue du panier
-            for($i=0;$i<count($panier);$i++){
-                echo '<tr>';
-                echo '<td>';
-                echo $panier[$i];
-                echo '</td>';
-                echo '<td>';
-                
-                echo '</td>';
-                echo '</tr>';
+
+            // On créer un total
+            $total=0;
+
+            // On intègre les variables pour la connexion de la base de données
+            include 'bd_identifiant.php';
+
+            // On effectue une tentative de connexion à la base de données
+            try {
+
+                // Sinon on affiche le contenue du panier
+                for($i=0;$i<count($panier);$i++){
+
+                        // On créer le lien avec la base de données
+                        $connexion   =   new   PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_bdd,   $PARAM_user,$PARAM_pw);
+        
+                        // On récupère l'auteur et le prix par rapport à son titre
+                        $resultats=$connexion->query("SELECT auteur,prix FROM cd WHERE titre='$panier[$i]' LIMIT 1"); 
+                        $resultat = $resultats->fetch(PDO::FETCH_ASSOC);
+
+                        // On ajoute pour chaque cd le prix au total
+                        $total=$total+$resultat['prix'];
+
+                        echo '<tr>';
+                            echo '<td>';
+                                // On affiche le titre et l'auteur
+                                echo $panier[$i].'<span class="panier-auteur"> par '.$resultat['auteur'].'</span>';
+                            echo '</td>';
+                            echo '<td class="tdright-panier">';
+                                // On affiche le prix
+                                echo $resultat['prix'].' €';      
+                            echo '</td>';
+                        echo '</tr>';
+                        
+                        // On ferme le curseur du résultat de la requête
+                        $resultats->closeCursor();
+                }
+            }catch(Exception $e){
+                    // Si une erreur liée à la base de données -> on affiche l'erreur
+                    echo 'Erreur : '.$e->getMessage().'<br />';
             }
-            
+
+            echo '<tr>';
+            echo '<th>Total</th>';
+            // On affiche le total du panier
+            echo '<th> '.$total.' €</td>';
+            echo '</tr>';
+
             // On finis le tableau
             echo '</table>';
         }
     }else {
 
         // Si il n'est pas déclaré alors on affiche qu'il est vide
-        echo "Panier vide";
+        echo "<span style='font-family: titre;'>Panier vide</span>";
     }
 
-        echo '<a href="suppressionPanier.php">Supression pannier</a>';
-
     ?>
+
     <div>
     </body>
 </html>

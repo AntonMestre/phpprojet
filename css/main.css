@@ -142,6 +142,60 @@ body {
     font-size: 115%;
     padding-right: 15px;
 }
+/* Panier */
 .panier{
-    
+    border-collapse: collapse;
+    width: 400px;
+}
+.panier td {
+    border: 1px solid #363636;
+    padding: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+.panier th {
+    border: 1px solid grey;
+    background-color: white;
+    color:black;
+    padding: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+.panier-auteur{
+    font-size: 75%;
+    color:#6b6b6b;
+    font-style: italic;
+}
+.tdright-panier{
+    text-align: center;
+}
+.bouton-suppressionpannier{
+    font-family: titre;
+    text-decoration: none;
+    color:white;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    background-color: red;
+    border: 0px;
+    font-size: 100%;
+    margin-left:5px;
+}
+.boutons-panier{
+    margin-bottom: 10px;
+}
+.bouton-payerpannier{
+    font-family: titre;
+    text-decoration: none;
+    color:white;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    background-color: #27eb00;
+    border: 0px;
+    font-size: 100%;
+    margin-left:5px;
+
 }

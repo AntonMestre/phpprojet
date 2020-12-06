@@ -57,7 +57,7 @@
 
                     // On affiche le titre, l'auteur, et le prix
                     echo '<td style="padding-left:50px;">
-                        <span class="cd-album">Album CD </span>
+                        <span class="cd-album">Album CD - '.$resultat['genre'].'</span>
                         <br/><span class="cd-titre">'.$resultat['titre'].'</span>
                         <br/><span class="cd-auteur">'.$resultat['auteur'].'</span>
                         <br/><span class="cd-prix">'.$resultat['prix'].' €</span><a class="cd-ajouterpanier" style="text-decoration:none" href="ajoutPanier.php?titre=' .$resultat['titre']. '">Ajouter au panier</a></td>';
