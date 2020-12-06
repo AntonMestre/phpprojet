@@ -11,7 +11,7 @@
 
     // On récupère dans des variables les données envoyées par le formulaire
     $num=$_POST['num'];
-    $date = date('d-m-Y', strtotime($_POST['date']));
+    $date = date('Y-m-d', strtotime($_POST['date']));
     
     // On vérifie que les variables ne sont pas vides
     if(isset($num) && isset($date)){
@@ -28,8 +28,8 @@
                 $datemax->add(new DateInterval('P3M'));
 
                 // Si la date est supérieure
-                if($date > $datemax->format('d-m-Y')){
-                    
+                if($date > $datemax->format('Y-m-d')){
+
                     // On supprime le panier
                     unset($_SESSION['panier']);
 

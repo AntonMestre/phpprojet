@@ -66,7 +66,7 @@
         echo "<p class='validmsg'>CD ajouté !</p>";
     }
  ?>
-    <p> Bonjour <?php $_SESSION['nom'] ?>
+    <p class="bvnmessage"> Bonjour <?php echo $_SESSION['nom']; ?></p>
     <h3 class="titre">Ajouter un CD</h3>
         <form action="ajouterCD.php" method="POST" enctype="multipart/form-data">
             <label>Titre</label>

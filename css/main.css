@@ -225,3 +225,7 @@ input[type=submit] {
     font-family: 'Roboto', sans-serif;
     color:green;
 }
+.bvnmessage{
+    margin: 15px;
+    font-family: 'Roboto', sans-serif;
+}
