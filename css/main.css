@@ -221,3 +221,7 @@ input[type=submit] {
     font-family: 'Roboto', sans-serif;
     color:red;
 }
+.validmsg{
+    font-family: 'Roboto', sans-serif;
+    color:green;
+}

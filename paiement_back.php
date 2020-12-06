@@ -34,7 +34,7 @@
                     unset($_SESSION['panier']);
 
                     // Si le paiement c'est bien réaliser on retourne sur la page d'index
-                    header('Location: index.php');
+                    header('Location: index.php?paie=good');
 
                 }else{
                     // Sinon c'est que la carte n'est plus valable

@@ -48,7 +48,7 @@
                     $requete->execute([NULL,$Titre, $Auteur, $Genre,$Prix,$url]);
                
                     // Insertion réalisé
-                    header('Location: management.php');
+                    header('Location: management.php?etatcd=ajouter');
 
                 }catch(Exception $e){
                     // Si une erreur liée à la base de données -> on affiche l'erreur

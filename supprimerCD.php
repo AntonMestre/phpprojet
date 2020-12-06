@@ -52,7 +52,7 @@
                         $requete = $connexion->prepare($sql);
                         $response = $requete->execute(array($Titre,$Auteur));
 
-                        header('Location: management.php');
+                        header('Location: management.php?etatcd=supprimer');
                         
                     }else{
                         // CD introuvable

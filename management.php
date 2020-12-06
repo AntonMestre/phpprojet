@@ -15,7 +15,7 @@
         // On vérifie qu'il soit administrateur
         if($_SESSION['statut'] != "admin"){
             // Si il ne l'est pas alors nous renvoyons sur la page index
-            header('Location: index.php');
+            header('Location: index.php?err=pasacces');
         }
     }else{
         // Sinon on redirige sur la page de connexion
@@ -59,7 +59,14 @@
     if(isset($_GET["err"]) && $_GET["err"]=="incomplet"){
         echo "<p class='errormsg'>Le formulaire est incomplet !</p>";
     }
+    if(isset($_GET["etatcd"]) && $_GET["etatcd"]=="supprimer"){
+        echo "<p class='validmsg'>CD supprimer !</p>";
+    }
+    if(isset($_GET["etatcd"]) && $_GET["etatcd"]=="ajouter"){
+        echo "<p class='validmsg'>CD ajouté !</p>";
+    }
  ?>
+    <p> Bonjour <?php $_SESSION['nom'] ?>
     <h3 class="titre">Ajouter un CD</h3>
         <form action="ajouterCD.php" method="POST" enctype="multipart/form-data">
             <label>Titre</label>

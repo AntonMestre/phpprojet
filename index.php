@@ -40,9 +40,18 @@
             echo ' | <a class="bandeau-menu-a" href="inscription.php">Inscription</a>';
             } ?></span>
     </div>
-
+    <div class="main">
     <?php
-
+    // gère si le paiment c'est bien passé
+    if(isset($_GET["paie"]) && $_GET["paie"]=="good"){
+        echo "<p class='validmsg'>Paiement accepté !</p>";
+    }
+    // gère si tentative pour aller sur management alors que non admin
+    if(isset($_GET["err"]) && $_GET["err"]=="pasacces"){
+        echo "<p class='errormsg'>Vous n'avez pas accès !</p>";
+    }
+    echo '</div>';
+    
     // On intègre les variables pour la connexion de la base de données
     include 'bd_identifiant.php';
 
@@ -107,8 +116,25 @@
 
     <!-- On indique une aide pour la compréhension du système -->
     <div class="txt-aide">Pour ajouter au panier il vous suffit d'appuyer sur le bouton<a class="bouton-ajouterpanier">+</a> et pour voir les détails appuyer sur <a class="bouton-details"> Details </a> </div>
-    <h3 class="contenue-titre">Rechercher un CD</h3>
-
-
+    <br/><br/>
+    <div class="main">
+    <h3 class="titre">Recherche CD par titre</h3>
+    <?php
+    // Si erreur alors on affiche
+    if(isset($_GET["err"]) && $_GET["err"]=="inconnu"){
+        echo "<p class='errormsg'>CD inconnu !</p>";
+    }
+    if(isset($_GET["err"]) && $_GET["err"]=="incomplet"){
+        echo "<p class='errormsg'>Le formulaire est incomplet !</p>";
+    }
+    ?>
+    <form class="form" action="recherche.php" method="POST">
+        <label>Titre</label>
+        <br/>
+        <input type="text" name="titreCD"/>
+        <input type="submit" value="Rechercher"/>
+    </form>
+    </div>
+    <br/>
     </body>
 </html>
