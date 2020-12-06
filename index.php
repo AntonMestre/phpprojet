@@ -27,7 +27,18 @@
     <div class="bandeau-front">
         <h1 class="bandeau-front-titre">SPACE<span style="color:coral;">Y<span></h1>
         <span class="bandeau-front-description">La musique pour les voyageurs</span>
-        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a></span>
+        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a> | 
+        <?php if(isset($_SESSION['email']))
+        { 
+            // Si connecté alors on propose management ou deconnexion
+            echo '<a class="bandeau-menu-a" href="deconnexion.php">Deconnexion</a>'; 
+            echo ' | <a class="bandeau-menu-a" href="management.php">Management</a>';
+        }
+        else {
+            // Si pas connecté on propose la connexion ou l'inscription
+            echo '<a class="bandeau-menu-a" href="connexion.php">Connexion</a>';
+            echo ' | <a class="bandeau-menu-a" href="inscription.php">Inscription</a>';
+            } ?></span>
     </div>
 
     <?php
@@ -96,5 +107,8 @@
 
     <!-- On indique une aide pour la compréhension du système -->
     <div class="txt-aide">Pour ajouter au panier il vous suffit d'appuyer sur le bouton<a class="bouton-ajouterpanier">+</a> et pour voir les détails appuyer sur <a class="bouton-details"> Details </a> </div>
+    <h3 class="contenue-titre">Rechercher un CD</h3>
+
+
     </body>
 </html>

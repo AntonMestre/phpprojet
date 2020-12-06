@@ -37,30 +37,66 @@
     <div class="bandeau-front">
         <h1 class="bandeau-front-titre">SPACE<span style="color:coral;">Y<span></h1>
         <span class="bandeau-front-description">La musique pour les voyageurs</span>
-        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a></span>
+        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a> | 
+        <?php if(isset($_SESSION['email']))
+        { 
+            // Si connecté alors on propose management ou deconnexion
+            echo '<a class="bandeau-menu-a" href="deconnexion.php">Deconnexion</a>'; 
+            echo ' | <a class="bandeau-menu-a" href="management.php">Management</a>';
+        }
+        else {
+            // Si pas connecté on propose la connexion ou l'inscription
+            echo '<a class="bandeau-menu-a" href="connexion.php">Connexion</a>';
+            echo ' | <a class="bandeau-menu-a" href="inscription.php">Inscription</a>';
+            } ?></span>
     </div>
     <div class="main">
-        <h2> Ajouter un CD </h2>
+    <?php    
+    // Si erreur alors on affiche
+    if(isset($_GET["err"]) && $_GET["err"]=="introuvable"){
+        echo "<p class='errormsg'>CD introuvable !</p>";
+    }
+    if(isset($_GET["err"]) && $_GET["err"]=="incomplet"){
+        echo "<p class='errormsg'>Le formulaire est incomplet !</p>";
+    }
+ ?>
+    <h3 class="titre">Ajouter un CD</h3>
         <form action="ajouterCD.php" method="POST" enctype="multipart/form-data">
-            <label>Titre:</label>
+            <label>Titre</label>
+            <br/>
             <input type="text" name="titre"/>
-            <label>Auteur:</label>
+            <br/>
+            <label>Auteur</label>
+            <br/>
             <input type="text" name="auteur"/>
-            <label>Genre:</label>
+            <br/>
+            <label>Genre</label>
+            <br/>
             <input type="text" name="genre"/>
-            <label>Prix:</label>
+            <br/>
+            <label>Prix</label>
+            <br/>
             <input type="text" name="prix"/>
-            <label>Pochette (.jpg):</label>
+            <br/>
+            <label>Pochette (.jpg)</label>
+            <br/>
             <input type="file" name="src"/>
+            <br/>
             <input type="submit" />
         </form>
-
-        <h2> Supprimer un CD </h2>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="titre">Supprimer un CD</h3>
         <form action="SupprimerCD.php" method="POST">
-            <label>Titre:</label>
+            <label>Titre</label>
+            <br/>
             <input type="text" name="titre"/>
-            <label>Auteur:</label>
+            <br/>
+            <label>Auteur</label>
+            <br/>
             <input type="text" name="auteur"/>
+            <br/>
             <input type="submit" />
         </form>
     </div>

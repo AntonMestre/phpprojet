@@ -197,5 +197,27 @@ body {
     border: 0px;
     font-size: 100%;
     margin-left:5px;
-
+}
+/* Form pour toutes les pages */
+label{
+    font-family: titre;
+}
+input {
+    color:black;
+    padding: 10px 10px 10px 10px;
+    border: none;
+    margin: 3px;
+    border-radius: 15px;
+}
+.titre {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 25px;
+}
+input[type=submit] {
+    font-family: 'Roboto', sans-serif;
+    background-color: coral;
+}
+.errormsg{
+    font-family: 'Roboto', sans-serif;
+    color:red;
 }

@@ -25,28 +25,46 @@
     <div class="bandeau-front">
         <h1 class="bandeau-front-titre">SPACE<span style="color:coral;">Y<span></h1>
         <span class="bandeau-front-description">La musique pour les voyageurs</span>
-        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a></span>
+        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a> | 
+        <?php if(isset($_SESSION['email']))
+        { 
+            // Si connecté alors on propose management ou deconnexion
+            echo '<a class="bandeau-menu-a" href="deconnexion.php">Deconnexion</a>'; 
+            echo ' | <a class="bandeau-menu-a" href="management.php">Management</a>';
+        }
+        else {
+            // Si pas connecté on propose la connexion ou l'inscription
+            echo '<a class="bandeau-menu-a" href="connexion.php">Connexion</a>';
+            echo ' | <a class="bandeau-menu-a" href="inscription.php">Inscription</a>';
+            } ?></span>
     </div>
     <div class="main">
+    <h3 class="titre">Inscription</h3>
     <?php 
 
 
     // Si erreur alors on affiche
     if(isset($_GET["err"]) && $_GET["err"]=="email"){
-        echo "Email déjà utiliser par un utilisateur !";
+        echo "<p class='errormsg'>Email déjà utiliser par un utilisateur </p>!";
     }
     if(isset($_GET["err"]) && $_GET["err"]=="incomplet"){
-        echo "Le formulaire est incomplet !";
+        echo "<p class='errormsg'>Le formulaire est incomplet ! </p>";
     }
     ?>
 
     <form action="inscription_back.php" method="POST">
-        <label>email :</label>
+        <label>email</label>
+        <br/>
         <input type="email" name="email"/>
-        <label>Nom : </label>
+        <br/>
+        <label>Nom</label>
+        <br/>
         <input type="text" name="nom"/>
-        <label>Mot de passe :</label>
+        <br/>
+        <label>Mot de passe</label>
+        <br/>
         <input type="password" name="mdp"/>
+        <br/>
         <input type="submit" />
     </form>
 

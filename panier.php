@@ -26,13 +26,24 @@
     <div class="bandeau-front">
         <h1 class="bandeau-front-titre">SPACE<span style="color:coral;">Y<span></h1>
         <span class="bandeau-front-description">La musique pour les voyageurs</span>
-        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a></span>
+        <span class="bandeau-menu"><a class="bandeau-menu-a" href="index.php">Accueil</a> | <a class="bandeau-menu-a" href="panier.php">Panier</a> | 
+        <?php if(isset($_SESSION['email']))
+        { 
+            // Si connecté alors on propose management ou deconnexion
+            echo '<a class="bandeau-menu-a" href="deconnexion.php">Deconnexion</a>'; 
+            echo ' | <a class="bandeau-menu-a" href="management.php">Management</a>';
+        }
+        else {
+            // Si pas connecté on propose la connexion ou l'inscription
+            echo '<a class="bandeau-menu-a" href="connexion.php">Connexion</a>';
+            echo ' | <a class="bandeau-menu-a" href="inscription.php">Inscription</a>';
+            } ?></span>
     </div>
     
     
     <?php
     // On affiche le titre de la page
-    echo '<h3 class="contenue-titre">Votre panier</h1>';
+    echo '<h3 class="contenue-titre">Votre panier</h3>';
     echo '<div class="main">';
 
 
@@ -50,7 +61,7 @@
             echo "<span style='font-family: titre;'>Panier vide</span>";
         }else{
             // On affiche deux boutons pour supprimer le panier et un autre pour payer le panier
-            echo '<div class="boutons-panier" ><a class="bouton-suppressionpannier" href="suppressionPanier.php">Supprimer le pannier</a><a class="bouton-payerpannier" href="suppressionPanier.php">Payer le pannier</a></div>';
+            echo '<div class="boutons-panier" ><a class="bouton-suppressionpannier" href="suppressionPanier.php">Supprimer le pannier</a><a class="bouton-payerpannier" href="paiement.php">Payer le pannier</a></div>';
             
             // On créer le tableau pour afficher
             echo '<table class="panier">';
